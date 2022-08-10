@@ -3,7 +3,7 @@ export const WorkoutBodyArea = {
   LOWER_BACK: "Lower Back",
 };
 
-export const ImageURL = "@static/";
+export const ImageURL = "@assets/";
 
 export const WorkoutData = {
   [WorkoutBodyArea.UPPER_BACK]: [
@@ -16,6 +16,11 @@ export const WorkoutData = {
       workout_image: ImageURL + "image.png",
       title: "Upper back title 1",
       description: "Upper back description 1",
+    },
+    {
+      workout_image: ImageURL + "image.png",
+      title: "Upper back title 2",
+      description: "Upper back description 2",
     },
   ],
   [WorkoutBodyArea.LOWER_BACK]: [

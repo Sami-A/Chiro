@@ -4,7 +4,6 @@
   margin: 0;
 }
 
-
 body {
   background: black;
 }
@@ -55,8 +54,9 @@ a {
 .selected-workout {
   flex-grow: 1;
   background-color: rgb(255, 234, 196);
-  padding-left: 0.7rem;
+  /* padding: 0 .7rem; */
 }
+
 .timer {
   flex-grow: 7;
   background-color: rgb(242, 195, 108);
@@ -80,7 +80,9 @@ a {
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
+  line-height: 0.1rem;
   border: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: yellow;
 }
 
 .session-counter > p {
@@ -91,4 +93,34 @@ a {
   display: flex;
   align-items: center;
   margin: 0.7rem 0;
+  padding: 0 0.3rem;
+  position: relative;
+}
+.up-next-workout-indicator {
+  position: absolute;
+  top: 0;
+  right: .3rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background: rgb(248, 219, 164);
+  border-radius: 3px;
+  padding: 0 .4rem;
+}
+.up-next-workout-indicator > span {
+  line-height: 1rem;
+  margin-right: .3rem;
+}
+
+.selected-workout-row-active {
+  background-color: rgb(190, 245, 142);
+}
+
+.current-workout {
+  text-align: center;
+}
+
+.current-workout > p {
+  border: 1px solid rgb(128, 128, 128, 0.5);
+  border-radius: 3px;
+  padding: 0.3rem 0;
 }
