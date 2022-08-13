@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getWorkouts, TIMER_TYPE } from "../slice";
@@ -11,12 +11,14 @@ export const SelectedWorkouts = () => {
   const { selectedWorkouts, currentWorkoutIndex, type, progress, timeLeft } =
     useSelector((state) => state.workouts);
 
+  const { workoutDuration } = useSelector((state) => state.settings);
+
   const { bodyArea } = useParams();
   const location = useLocation();
 
   useEffect(() => {
-    dispatch(getWorkouts(bodyArea));
-  }, [location]);
+    dispatch(getWorkouts(bodyArea, workoutDuration));
+  }, [location.pathname]);
 
   return (
     <div className="selected-workout">

@@ -12,15 +12,7 @@ export const TIMER_TYPE = {
   break: "BREAK",
 };
 
-export const AUTO_START = {
-  enabled: "ENABLED",
-  disabled: "DISABLED",
-};
-
 const initialState = {
-  workoutDuration: 10,
-  breakDuration: 5,
-
   selectedWorkouts: [],
   currentWorkoutIndex: 0,
   status: ALL_STATUS.idle,
@@ -39,13 +31,15 @@ const slice = createSlice({
     },
     setWorkouts: (state, { payload }) => {
       clearInterval(state.interval);
+      const { data, workoutDuration } = payload;
+
       return {
         ...state,
-        selectedWorkouts: payload ? payload : [],
+        selectedWorkouts: data ? data : [],
         currentWorkoutIndex: 0,
         status: ALL_STATUS.idle,
         type: TIMER_TYPE.workout,
-        timeLeft: 0,
+        timeLeft: workoutDuration,
         progress: 100,
         interval: null,
       };
@@ -72,22 +66,23 @@ const slice = createSlice({
     setNextTimer: (state, { payload }) => {
       clearInterval(state.interval);
 
+      const { workoutDuration, breakDuration } = payload;
       let currentWorkoutIndex, type, timeLeft;
 
       if (state.currentWorkoutIndex < state.selectedWorkouts.length - 1) {
         if (state.type === TIMER_TYPE.workout) {
           currentWorkoutIndex = state.currentWorkoutIndex; //wil change after the break ended
           type = TIMER_TYPE.break;
-          timeLeft = state.breakDuration;
+          timeLeft = breakDuration;
         } else {
           currentWorkoutIndex = state.currentWorkoutIndex + 1;
           type = TIMER_TYPE.workout;
-          timeLeft = state.workoutDuration;
+          timeLeft = workoutDuration;
         }
       } else {
         currentWorkoutIndex = 0;
         type = TIMER_TYPE.workout;
-        timeLeft = state.workoutDuration;
+        timeLeft = workoutDuration;
       }
       return {
         ...state,
@@ -98,13 +93,12 @@ const slice = createSlice({
         currentWorkoutIndex,
       };
     },
-    resetTimer: (state) => {
+    resetTimer: (state, { payload }) => {
       clearInterval(state.interval);
 
+      const { workoutDuration, breakDuration } = payload;
       const timeLeft =
-        state.type === TIMER_TYPE.workout
-          ? state.workoutDuration
-          : state.breakDuration;
+        state.type === TIMER_TYPE.workout ? workoutDuration : breakDuration;
 
       return {
         ...state,
@@ -116,12 +110,15 @@ const slice = createSlice({
     },
     moveToSelectedWorkout: (state, { payload }) => {
       clearInterval(state.interval);
+
+      const { workoutDuration, index } = payload;
+
       return {
         ...state,
         status: ALL_STATUS.idle,
         type: TIMER_TYPE.workout, // transition break before moving to the selected workout
-        timeLeft: state.workoutDuration,
-        currentWorkoutIndex: payload, //after a transition break ended
+        timeLeft: workoutDuration,
+        currentWorkoutIndex: index, //after a transition break ended
         progress: 100,
         interval: null,
       };
@@ -141,9 +138,9 @@ export const {
   moveToSelectedWorkout,
 } = slice.actions;
 
-export const getWorkouts = (bodyArea) => (dispatch) => {
+export const getWorkouts = (bodyArea, workoutDuration) => (dispatch) => {
   const response = getSelectedWorkout(bodyArea);
-  dispatch(setWorkouts(response));
+  dispatch(setWorkouts({ data: response, workoutDuration }));
 };
 
 export default slice.reducer;

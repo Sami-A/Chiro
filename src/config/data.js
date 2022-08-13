@@ -5,36 +5,21 @@ export const WorkoutBodyArea = {
 
 export const ImageURL = "@assets/";
 
+function generateData(arraySize, bodyArea) {
+  return Array(arraySize)
+    .fill()
+    .map((val, index) => {
+      return {
+        workout_image: ImageURL + "image.png",
+        title: `${bodyArea} back title ${index}`,
+        description: `${bodyArea} back description ${index}`,
+      };
+    });
+}
+
 export const WorkoutData = {
-  [WorkoutBodyArea.UPPER_BACK]: [
-    {
-      workout_image: ImageURL + "image.png",
-      title: "Upper back title",
-      description: "Upper back description",
-    },
-    {
-      workout_image: ImageURL + "image.png",
-      title: "Upper back title 1",
-      description: "Upper back description 1",
-    },
-    {
-      workout_image: ImageURL + "image.png",
-      title: "Upper back title 2",
-      description: "Upper back description 2",
-    },
-  ],
-  [WorkoutBodyArea.LOWER_BACK]: [
-    {
-      workout_image: ImageURL + "image.png",
-      title: "Lower back title",
-      description: "Lower back description",
-    },
-    {
-      workout_image: ImageURL + "image.png",
-      title: "Lower back title 1",
-      description: "Lower back description 1",
-    },
-  ],
+  [WorkoutBodyArea.UPPER_BACK]: generateData(30, "Upper"),
+  [WorkoutBodyArea.LOWER_BACK]: generateData(2, "Lower"),
 };
 
 export function getSelectedWorkout(bodyArea) {

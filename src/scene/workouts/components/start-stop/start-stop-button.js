@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { AUTO_START } from "../../../settings/slice";
 import {
   ALL_STATUS,
   TIMER_TYPE,
@@ -13,9 +15,24 @@ import {
 import { PlayPauseIcon } from "./play-pause-icon";
 
 export const StartStopButton = () => {
+  const { autostart, workoutDuration, breakDuration } = useSelector(
+    (state) => state.settings
+  );
+
+  const { currentWorkoutIndex, status, type, timeLeft } = useSelector(
+    (state) => state.workouts
+  );
+
   const dispatch = useDispatch();
-  const { status, type, timeLeft, workoutDuration, breakDuration } =
-    useSelector((state) => state.workouts);
+
+  useEffect(() => {
+    if (currentWorkoutIndex === 0 && type === TIMER_TYPE.workout) return;
+
+    if (autostart === AUTO_START.enabled) {
+      setTimeout(startWorkoutTimer, 1000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, currentWorkoutIndex]);
 
   function startWorkoutTimer() {
     if (status === ALL_STATUS.started) return;
@@ -47,7 +64,7 @@ export const StartStopButton = () => {
       }
       clearInterval(interval);
 
-      dispatch(setNextTimer());
+      dispatch(setNextTimer({ workoutDuration, breakDuration }));
     }, 1000);
     dispatch(saveInterval(interval));
   }

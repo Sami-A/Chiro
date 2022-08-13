@@ -1,15 +1,21 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { resetTimer } from "../slice";
 
-import reload from "../../../assets/reload.svg";
+import Reload from "../../../svg/reload";
 
 export const ResetButton = () => {
+  const { workoutDuration, breakDuration } = useSelector(
+    (state) => state.settings
+  );
+
   const dispatch = useDispatch();
 
   return (
-    <button onClick={() => dispatch(resetTimer())}>
-      <img src={reload} alt="reload" />
+    <button
+      onClick={() => dispatch(resetTimer({ workoutDuration, breakDuration }))}
+    >
+      <Reload />
     </button>
   );
 };
