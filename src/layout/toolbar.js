@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 import { ToolBarContainer } from "./basement";
 
 import Menu from "../svg/menu";
 import { Drawer } from "./drawer";
 
-const Header = ({ logo }) => (
+const Logo = ({ logo }) => (
   <div className="side-nav-header">
     <img
       src={require(`../assets/${logo}`)}
@@ -16,23 +18,39 @@ const Header = ({ logo }) => (
 );
 
 export const ToolBar = ({ logo }) => {
-  const drawerRef = useRef();
+  const [workoutBodyArea, setWorkoutBodyArea] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  function openMenu() {
-    drawerRef.current.style.display = "flex";
+  const location = useLocation();
+
+  useEffect(() => {
+    if (decodeURI(location.pathname).slice(1) === "settings") {
+      setWorkoutBodyArea(null);
+    } else {
+      setWorkoutBodyArea(decodeURI(location.pathname).slice(1));
+    }
+  }, [location.pathname]);
+
+  function openDrawer() {
+    setIsDrawerOpen(true);
   }
-  function closeMenu() {
-    drawerRef.current.style.display = "none";
+  function closeDrawer() {
+    setIsDrawerOpen(false);
   }
 
   return (
     <ToolBarContainer>
-      <Header logo={logo} />
-
-      <div className="pointer" onClick={openMenu}>
+      <Logo logo={logo} />
+      {workoutBodyArea && (
+        <div className="text-center toolbar-title">
+          <h4>{workoutBodyArea}</h4>
+          <span>Workouts</span>
+        </div>
+      )}
+      <div className="pointer" onClick={openDrawer}>
         <Menu />
       </div>
-      <Drawer drawerRef={drawerRef} closeMenu={closeMenu} />
+      <Drawer isDrawerOpen={isDrawerOpen} closeDrawer={closeDrawer} />
     </ToolBarContainer>
   );
 };

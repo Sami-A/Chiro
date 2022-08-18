@@ -64,6 +64,13 @@ export const ToolBarContainer = styled.div`
   @media (min-width: 1200px) {
     display: none;
   }
+
+  .toolbar-title {
+    & span {
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 export const MainContainer = styled.div`

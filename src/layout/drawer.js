@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
@@ -5,12 +7,26 @@ import NavLinks from "./nav-links";
 
 import Close from "../svg/close";
 
-export const Drawer = ({ drawerRef, closeMenu }) => {
+export const Drawer = ({ isDrawerOpen, closeDrawer }) => {
+  const drawerRef = useRef();
+
+  function handelClick(e) {
+    if (!drawerRef.current) return;
+    if (
+      drawerRef.current.className === e.target.className ||
+      e.target.nodeName === "A"
+    ) {
+      closeDrawer();
+    }
+  }
+
+  if (!isDrawerOpen) return null;
+
   return (
-    <DrawerContainer ref={drawerRef}>
+    <DrawerContainer ref={drawerRef} onClick={handelClick}>
       <div className="drawer">
         <div className="drawer-content">
-          <div className="close" onClick={closeMenu}>
+          <div className="close" onClick={closeDrawer}>
             <Close />
           </div>
           <NavLinks />
@@ -26,7 +42,7 @@ const DrawerContainer = styled.div`
   top: 0;
   right: 0;
 
-  display: none;
+  display: flex;
   justify-content: flex-end;
   height: 100%;
   width: 100%;
@@ -86,7 +102,7 @@ const DrawerContainer = styled.div`
     border-radius: 50%;
   }
   .drawer-content .close:hover {
-    background: ${({theme})=>theme.getRGB(theme.SECONDARY.main, .1)};
+    background: ${({ theme }) => theme.getRGB(theme.SECONDARY.main, 0.1)};
     transition: 150ms;
   }
 `;

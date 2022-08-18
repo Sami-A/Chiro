@@ -4,13 +4,6 @@ const GlobalStyle = () => {
   return (
     <Global
       styles={css`
-        /*
-        width breakpoints
-        sm & <: 700,
-        md & >: 900,
-              
-      */
-
         /* @font-face {
         font-family: "font1";
         src: url("https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap") format("truetype");
@@ -31,10 +24,10 @@ const GlobalStyle = () => {
         }
 
         ::selection {
-          background: ${theme.getRGB(theme.PRIMARY.on, .4)};
+          background: ${theme.getRGB(theme.SECONDARY.main, 0.4)};
         }
         ::-moz-selection {
-          background: ${theme.getRGB(theme.PRIMARY.on, .4)};
+          background: ${theme.getRGB(theme.SECONDARY.main, 0.4)};
         }
 
         html {
