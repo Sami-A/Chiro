@@ -16,7 +16,7 @@ import { LOCAL_STORAGE, setItem } from "../../helpers/persist.js";
 
 import Slider from "../../skin/slider.js";
 import Switch from "../../skin/switch.js";
-import { THEME_MODE } from "../../theme.js";
+import { THEME_MODE } from "../../config/theme.js";
 
 export const Settings = () => {
   const { workoutDuration, breakDuration, autostart, theme } = useSelector(
