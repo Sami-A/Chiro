@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { moveToSelectedWorkout } from "../slice";
 
+import Button from "../../../skin/button";
 import Next from "../../../svg/next";
 
 export const NextButton = () => {
@@ -27,8 +28,8 @@ export const NextButton = () => {
   }
 
   return (
-    <button onClick={nextWorkout}>
+    <Button onClick={nextWorkout}>
       <Next />
-    </button>
+    </Button>
   );
 };

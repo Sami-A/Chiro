@@ -2,8 +2,8 @@ import { useRoutes } from "react-router-dom";
 import { Workouts } from "../scene/workouts/workouts";
 import { Settings } from "../scene/settings/settings";
 
-const useRouter = () => {
-  const router = useRoutes([
+const Router = () => {
+  const routes = useRoutes([
     {
       path: "/",
       element: <Workouts />,
@@ -21,7 +21,7 @@ const useRouter = () => {
     },
   ]);
 
-  return router;
+  return routes;
 };
 
-export default useRouter;
+export default Router;

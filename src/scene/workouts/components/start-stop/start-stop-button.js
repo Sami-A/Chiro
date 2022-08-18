@@ -12,6 +12,7 @@ import {
   setNextTimer,
 } from "../../slice";
 
+import Button from "../../../../skin/button";
 import { PlayPauseIcon } from "./play-pause-icon";
 
 export const StartStopButton = () => {
@@ -19,9 +20,8 @@ export const StartStopButton = () => {
     (state) => state.settings
   );
 
-  const { currentWorkoutIndex, status, type, timeLeft } = useSelector(
-    (state) => state.workouts
-  );
+  const { currentWorkoutIndex, status, type, timeLeft, selectedWorkouts } =
+    useSelector((state) => state.workouts);
 
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ export const StartStopButton = () => {
   }, [type, currentWorkoutIndex]);
 
   function startWorkoutTimer() {
-    if (status === ALL_STATUS.started) return;
+    if (status === ALL_STATUS.started || selectedWorkouts.length < 1) return;
 
     dispatch(setStatus(ALL_STATUS.started));
 
@@ -77,15 +77,15 @@ export const StartStopButton = () => {
 
   if (status !== ALL_STATUS.started) {
     return (
-      <button onClick={startWorkoutTimer}>
+      <Button onClick={startWorkoutTimer}>
         <PlayPauseIcon path={playPauseProps.play} />
-      </button>
+      </Button>
     );
   }
   return (
-    <button onClick={() => dispatch(pauseTimer())}>
+    <Button onClick={() => dispatch(pauseTimer())} bg_color="green">
       <PlayPauseIcon path={playPauseProps.pause} />
-    </button>
+    </Button>
   );
 };
 

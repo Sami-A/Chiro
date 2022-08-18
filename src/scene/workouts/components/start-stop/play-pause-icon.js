@@ -12,6 +12,7 @@ export const PlayPauseIcon = ({ path }) => (
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
+      strokeWidth={.5}
       d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
     />
   </svg>

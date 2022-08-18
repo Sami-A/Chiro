@@ -8,9 +8,9 @@ export const SessionCounter = () => {
     ]
   );
   return (
-    <div className="session-counter">
+    <div className="text-center">
       <p>
-        {currentWorkoutIndex + 1} of {workoutsLength}
+        {workoutsLength > 0 ? currentWorkoutIndex + 1 : 0} of {workoutsLength}
       </p>
       <p>Sessions</p>
     </div>

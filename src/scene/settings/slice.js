@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LOCAL_STORAGE, getItem } from "../../helpers/persist";
+import { THEME_MODE } from "../../theme";
 
 export const AUTO_START = {
   enabled: "ENABLED",
@@ -25,6 +26,7 @@ const initialState = {
     localData.workoutDuration || WORKOUT_DURATION_MIN_MAX.default,
   breakDuration: localData.breakDuration || BREAK_DURATION_MIN_MAX.default,
   autostart: localData.autostart || AUTO_START.disabled,
+  theme: localData.theme || THEME_MODE.LIGHT,
 };
 
 const slice = createSlice({
@@ -48,10 +50,17 @@ const slice = createSlice({
         autostart,
       };
     },
+    changeTheme: (state, { payload }) => {
+      return { ...state, theme: payload };
+    },
   },
 });
 
-export const { saveWorkoutDuration, saveBreakDuration, saveAutostart } =
-  slice.actions;
+export const {
+  saveWorkoutDuration,
+  saveBreakDuration,
+  saveAutostart,
+  changeTheme,
+} = slice.actions;
 
 export default slice.reducer;

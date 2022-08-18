@@ -27,7 +27,8 @@ const slice = createSlice({
   initialState,
   reducers: {
     setStatus: (state, { payload }) => {
-      return { ...state, status: payload };
+      clearInterval(state.interval);
+      return { ...state, status: payload, interval: null };
     },
     setWorkouts: (state, { payload }) => {
       clearInterval(state.interval);

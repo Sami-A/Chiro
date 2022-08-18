@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { CurrentWorkout } from "./components/current-workout";
 import { SelectedWorkouts } from "./components/selected-workouts";
 import { CountDownCircle } from "./components/countdown-circle";
@@ -11,7 +12,7 @@ export const Workouts = () => {
   return (
     <>
       <SelectedWorkouts />
-      <div className="timer">
+      <Timer>
         <CurrentWorkout />
         <CountDownCircle />
         <div className="countdown-controllers">
@@ -21,7 +22,33 @@ export const Workouts = () => {
           <NextButton />
         </div>
         <SessionCounter />
-      </div>
+      </Timer>
     </>
   );
 };
+
+const Timer = styled.div`
+  flex-grow: 7;
+  background: ${(props) => props.theme.TIMER};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+
+  .countdown-controllers {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .circle-container {
+    height: 400px;
+    width: 400px;
+    text-align: center;
+
+    @media (max-width: 1300px) {
+      height: 350px;
+      width: 350px;
+    }
+  }
+`;

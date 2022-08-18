@@ -1,26 +1,92 @@
-import { NavLink } from "react-router-dom";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
-import { WorkoutBodyArea } from "../config/data";
+import NavLinks from "./nav-links";
 
 import Close from "../svg/close";
 
 export const Drawer = ({ drawerRef, closeMenu }) => {
   return (
-    <div ref={drawerRef} className="drawer-backdrop">
+    <DrawerContainer ref={drawerRef}>
       <div className="drawer">
         <div className="drawer-content">
           <div className="close" onClick={closeMenu}>
             <Close />
           </div>
-          <div className="nav-menu-group">
-            <h3 className="nav-menu-group-header">Category</h3>
-            <NavLink to={`/${WorkoutBodyArea.UPPER_BACK}`}>Upper Back</NavLink>
-            <NavLink to={`/${WorkoutBodyArea.LOWER_BACK}`}>Lower Back</NavLink>
-          </div>
-
-          <NavLink to="/settings">Settings</NavLink>
+          <NavLinks />
         </div>
       </div>
-    </div>
+    </DrawerContainer>
   );
 };
+
+const DrawerContainer = styled.div`
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+
+  display: none;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+
+  ${({ theme }) => css`
+  
+  background: ${theme.getRGB(theme.BACK_DROP, 0.5)};
+
+  .drawer {
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: inherit;
+    width: 245px;
+
+    background: ${theme.PRIMARY.main};
+    padding-top: 7rem;
+
+    box-shadow: -7px 2px 10px 1px ${theme.getRGB(theme.BOX_SHADOW_CUSTOM, 0.2)};
+    -webkit-box-shadow: -7px 2px 10px 1px ${theme.getRGB(
+      theme.BOX_SHADOW_CUSTOM,
+      0.2
+    )};
+    -moz-box-shadow: -7px 2px 10px 1px ${theme.getRGB(
+      theme.BOX_SHADOW_CUSTOM,
+      0.2
+    )};
+    transition: 225ms;
+
+  `}
+
+  }
+
+  .drawer-content > div,
+  a {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1.3rem;
+  }
+
+  .drawer-content .nav-menu-group {
+    display: block;
+  }
+
+  .drawer-content .close {
+    position: absolute;
+    top: 1rem;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    padding: 9px;
+    line-height: 2.4rem;
+    border-radius: 50%;
+  }
+  .drawer-content .close:hover {
+    background: ${({theme})=>theme.getRGB(theme.SECONDARY.main, .1)};
+    transition: 150ms;
+  }
+`;

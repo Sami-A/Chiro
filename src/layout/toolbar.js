@@ -1,11 +1,21 @@
 import { useRef } from "react";
+import { ToolBarContainer } from "./basement";
 
 import Menu from "../svg/menu";
 import { Drawer } from "./drawer";
 
-const Logo = () => <h1>Chiro</h1>;
+const Header = ({ logo }) => (
+  <div className="side-nav-header">
+    <img
+      src={require(`../assets/${logo}`)}
+      width="130"
+      height="50"
+      alt="logo"
+    />
+  </div>
+);
 
-export const ToolBar = () => {
+export const ToolBar = ({ logo }) => {
   const drawerRef = useRef();
 
   function openMenu() {
@@ -16,13 +26,13 @@ export const ToolBar = () => {
   }
 
   return (
-    <div className="tool-bar">
-      <Logo />
+    <ToolBarContainer>
+      <Header logo={logo} />
 
       <div className="pointer" onClick={openMenu}>
         <Menu />
       </div>
       <Drawer drawerRef={drawerRef} closeMenu={closeMenu} />
-    </div>
+    </ToolBarContainer>
   );
 };

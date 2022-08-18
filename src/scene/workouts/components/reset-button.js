@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { resetTimer } from "../slice";
 
+import Button from "../../../skin/button";
 import Reload from "../../../svg/reload";
 
 export const ResetButton = () => {
@@ -12,10 +13,10 @@ export const ResetButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <button
+    <Button
       onClick={() => dispatch(resetTimer({ workoutDuration, breakDuration }))}
     >
       <Reload />
-    </button>
+    </Button>
   );
 };
