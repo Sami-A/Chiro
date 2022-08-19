@@ -62,7 +62,7 @@ export const LIGHT = Object.freeze(
       BOX_SHADOW: getRGB(palettes.night.get(400), 0.7),
       BOX_SHADOW_CUSTOM: palettes.night.get(900),
 
-      TEXT_SHADOW: palettes.night.get(50),
+      TEXT_SHADOW: palettes.night.get(500),
 
       BACK_DROP: palettes.night.get(900),
 
@@ -119,7 +119,7 @@ export const DARK = Object.freeze(
       BOX_SHADOW: getRGB(palettes.night.get(900), 1),
       BOX_SHADOW_CUSTOM: palettes.night.get(900),
 
-      TEXT_SHADOW: palettes.day.get(50),
+      TEXT_SHADOW: getRGB(palettes.night.get(700), 1),
 
       BACK_DROP: palettes.night.get(900),
 
@@ -131,12 +131,14 @@ export const DARK = Object.freeze(
         main: palettes.night.get(900),
         variant: palettes.night.get(700),
         on: getRGB(palettes.day.get(50), 0.8),
+        swatches: palettes.night,
       },
 
       SECONDARY: {
         main: palettes.day.get(200),
         variant: palettes.day.get(100),
         on: palettes.day.get(800),
+        swatches: palettes.day,
       },
 
       SURFACE: {

@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import styled from "@emotion/styled";
+
+import { WORKOUT_ROUTES } from "../../helpers/routes";
+
 import { CurrentWorkout } from "./components/current-workout";
 import { SelectedWorkouts } from "./components/selected-workouts";
 import { CountDownCircle } from "./components/countdown-circle";
@@ -9,6 +15,15 @@ import { NextButton } from "./components/next-button";
 import { SessionCounter } from "./components/session-counter";
 
 export const Workouts = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!WORKOUT_ROUTES.has(decodeURI(location.pathname).slice(1))) {
+      navigate("/");
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <SelectedWorkouts />

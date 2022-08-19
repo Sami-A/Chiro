@@ -26,14 +26,14 @@ const Button = styled.button`
 
 export const ElevatedButton = styled.button`
   ${({ theme }) => css`
-    background-color: ${theme.PRIMARY.main};
-    border: 2px solid ${theme.SECONDARY.main};
-    border-radius: 50%;
+    background-color: ${theme.BACKGROUND};
+    border: 2px solid ${theme.SECONDARY.variant};
+    border-radius: .5rem;
     box-shadow: ${theme.SECONDARY.main} 4px 4px 0 0;
-    color: ${theme.TEXT_COLOR};
+    color: ${theme.SECONDARY.main};
     cursor: pointer;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.5rem;
     text-align: center;
     text-decoration: none;
     user-select: none;
@@ -42,16 +42,18 @@ export const ElevatedButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.9rem;
-    height: 2.9rem;
+    padding: 1rem 3rem;
 
     &:hover {
-      background-color: ${theme.SECONDARY.main};
-      color: ${theme.PRIMARY.main};
+      background-color: ${theme.SURFACE.main};
+      color: ${theme.ON_BACKGROUND};
+      box-shadow: ${theme.ON_BACKGROUND} 2px 2px 0 0;
+      transform: translate(2px, 2px);
+      transition: 0.3s;
     }
 
     &:active {
-      box-shadow: ${theme.SECONDARY.main} 2px 2px 0 0;
+      box-shadow: ${theme.ON_BACKGROUND} 2px 2px 0 0;
       transform: translate(2px, 2px);
     }
   `}
