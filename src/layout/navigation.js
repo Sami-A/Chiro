@@ -4,7 +4,7 @@ import { ToolBarContainer, SideNavigationContainer } from "./basement";
 import { ToolBar } from "./toolbar";
 import NavLinks from "./nav-links";
 
-import { THEME_MODE } from "../config/theme";
+import { THEME_MODE } from "config/theme";
 
 const LOGO_NAMES = {
   chiroLight: "chiro_light.png",

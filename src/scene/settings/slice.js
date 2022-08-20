@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LOCAL_STORAGE, getItem } from "../../helpers/persist";
-import { THEME_MODE } from "../../config/theme";
+import { LOCAL_STORAGE, getItem } from "helpers/persist";
+import { THEME_MODE } from "config/theme";
 
 export const AUTO_START = {
   enabled: "ENABLED",

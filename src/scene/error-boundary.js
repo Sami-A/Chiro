@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
-import { ElevatedButton } from "../skin/button";
+import { ElevatedButton } from "skin/button";
 
-import { THEME_MODE } from "../config/theme";
+import { THEME_MODE } from "config/theme";
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -25,12 +25,9 @@ export default class ErrorBoundary extends Component {
   }
 
   clearErrorSignal() {
-    this.setState(
-      (pre) => {
-        return { ...pre, hasErrorOccurred: false };
-      },
-      () => console.log("sdfsdf", this.state.hasErrorOccurred)
-    );
+    this.setState((pre) => {
+      return { ...pre, hasErrorOccurred: false };
+    });
   }
 
   render() {
@@ -60,7 +57,7 @@ const ErrorBoundaryContent = ({ clearErrorSignal }) => {
     <ErrorMessageContainer>
       <div className="gif-container">
         <img
-          src={require(`../assets/${
+          src={require(`assets/${
             theme === THEME_MODE.LIGHT ? ERROR_GIF.light : ERROR_GIF.dark
           }`)}
           alt="404"

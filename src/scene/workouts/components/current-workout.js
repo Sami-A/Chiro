@@ -15,7 +15,7 @@ export const CurrentWorkout = () => {
           <>
             <img
               alt="workoutImage"
-              src={require(`../../../assets/${selectedWorkouts[currentWorkoutIndex].workout_image}`)}
+              src={require(`assets/${selectedWorkouts[currentWorkoutIndex].workout_image}`)}
               height="100px"
               width="100px"
             />

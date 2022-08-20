@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
-import { WorkoutBodyArea } from "../config/data";
+import { WorkoutBodyArea } from "config/data";
 
 const NavLinks = () => (
   <NavLinksContainer>
