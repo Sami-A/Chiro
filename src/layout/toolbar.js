@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import { ToolBarContainer } from "./basement";
+import { WORKOUT_ROUTES } from "../helpers/routes";
 
 import Menu from "../svg/menu";
+
+import { ToolBarContainer } from "./basement";
 import { Drawer } from "./drawer";
 
 const Logo = ({ logo }) => (
@@ -18,16 +20,17 @@ const Logo = ({ logo }) => (
 );
 
 export const ToolBar = ({ logo }) => {
-  const [workoutBodyArea, setWorkoutBodyArea] = useState(null);
+  const [bodyArea, setBodyArea] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    if (decodeURI(location.pathname).slice(1) === "settings") {
-      setWorkoutBodyArea(null);
+    const path = decodeURI(location.pathname).slice(1);
+    if (WORKOUT_ROUTES.has(path)) {
+      setBodyArea(decodeURI(location.pathname).slice(1));
     } else {
-      setWorkoutBodyArea(decodeURI(location.pathname).slice(1));
+      setBodyArea(null);
     }
   }, [location.pathname]);
 
@@ -41,9 +44,9 @@ export const ToolBar = ({ logo }) => {
   return (
     <ToolBarContainer>
       <Logo logo={logo} />
-      {workoutBodyArea && (
+      {bodyArea && (
         <div className="text-center toolbar-title">
-          <h4>{workoutBodyArea}</h4>
+          <h4>{bodyArea}</h4>
           <span>Workouts</span>
         </div>
       )}

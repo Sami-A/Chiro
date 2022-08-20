@@ -1,7 +1,9 @@
 import { BrowserRouter } from "react-router-dom";
 
-import GlobalStyle from "./layout/global";
 import ThemeConfig from "./theme-config";
+import GlobalStyle from "./layout/global";
+
+import ErrorBoundary from "./scene/error-boundary";
 
 import { ChiroContainer, MainContainer } from "./layout/basement";
 
@@ -14,12 +16,14 @@ export default function Chiro() {
     <ThemeConfig>
       <GlobalStyle />
       <BrowserRouter>
-        <ChiroContainer>
-          <Navigation />
-          <MainContainer>
-            <Router />
-          </MainContainer>
-        </ChiroContainer>
+        <ErrorBoundary>
+          <ChiroContainer>
+            <Navigation />
+            <MainContainer>
+              <Router />
+            </MainContainer>
+          </ChiroContainer>
+        </ErrorBoundary>
       </BrowserRouter>
     </ThemeConfig>
   );

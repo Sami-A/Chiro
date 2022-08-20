@@ -31,7 +31,7 @@ export const CurrentWorkout = () => {
             </div>
           </>
         ) : (
-          "No workout yet"
+          "No workouts selected yet"
         )}
       </div>
     </CurrentWorkoutContainer>

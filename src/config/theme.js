@@ -55,7 +55,10 @@ export const LIGHT = Object.freeze(
   Object.assign(
     {
       type: THEME_MODE.LIGHT,
+
       FONT: "Roboto, sans-serif",
+      FUN_FONT: "Silkscreen, sans-serif",
+
       BACKGROUND: palettes.day.get(50),
       ON_BACKGROUND: palettes.night.get(800),
 
@@ -112,7 +115,10 @@ export const DARK = Object.freeze(
   Object.assign(
     {
       type: THEME_MODE.DARK,
+      
       FONT: "Roboto, sans-serif",
+      FUN_FONT: "Silkscreen, sans-serif",
+      
       BACKGROUND: palettes.night.get(900),
       ON_BACKGROUND: getRGB(palettes.day.get(50), 0.8),
 
