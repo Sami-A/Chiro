@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
-import { WORKOUT_ROUTES } from "helpers/routes";
+import { WORKOUT_ROUTES } from "../../helpers/routes";
 
 import { CurrentWorkout } from "./components/current-workout";
 import { SelectedWorkouts } from "./components/selected-workouts";
@@ -22,7 +22,7 @@ export const Workouts = () => {
     if (!WORKOUT_ROUTES.has(decodeURI(location.pathname).slice(1))) {
       navigate("/");
     }
-  }, [location.pathname, navigate]);
+  }, [location.pathname]);
 
   return (
     <>

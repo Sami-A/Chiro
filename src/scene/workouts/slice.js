@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getSelectedWorkout } from "config/data";
+import { getSelectedWorkout } from "../../config/data";
 
 export const ALL_STATUS = {
   idle: "IDLE",

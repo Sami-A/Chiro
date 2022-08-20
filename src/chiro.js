@@ -3,13 +3,13 @@ import { BrowserRouter } from "react-router-dom";
 import ThemeConfig from "./theme-config";
 import GlobalStyle from "./layout/global";
 
-import ErrorBoundary from "scene/error-boundary";
+import ErrorBoundary from "./scene/error-boundary";
 
-import { ChiroContainer, MainContainer } from "layout/basement";
+import { ChiroContainer, MainContainer } from "./layout/basement";
 
-import { Navigation } from "layout/navigation";
+import { Navigation } from "./layout/navigation";
 
-import Router from "helpers/routes";
+import Router from "./helpers/routes";
 
 export default function Chiro() {
   return (

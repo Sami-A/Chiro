@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 
 import NavLinks from "./nav-links";
 
-import Close from "svg/close";
+import Close from "../svg/close";
 
 const useDelayUnmount = (delayTime) => {
   const [showComponent, setShowComponent] = useState(false);

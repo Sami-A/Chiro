@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { moveToSelectedWorkout } from "../slice";
 
-import Button from "skin/button";
-import Next from "svg/next";
+import Button from "../../../skin/button";
+import Next from "../../../svg/next";
 
 export const NextButton = () => {
   const [selectedWorkoutsLength, currentWorkoutIndex] = useSelector(
