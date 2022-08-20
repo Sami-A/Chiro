@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { WORKOUT_ROUTES } from "../helpers/routes";
 
-import Menu from "../svg/menu";
+import Menu from "svg/menu";
 
 import { ToolBarContainer } from "./basement";
 import { Drawer } from "./drawer";

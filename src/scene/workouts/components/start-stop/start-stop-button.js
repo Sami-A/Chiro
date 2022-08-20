@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AUTO_START } from "../../../settings/slice";
+import { AUTO_START } from "scene/settings/slice";
 import {
   ALL_STATUS,
   TIMER_TYPE,
@@ -10,9 +10,9 @@ import {
   saveInterval,
   pauseTimer,
   setNextTimer,
-} from "../../slice";
+} from "scene/workouts/slice";
 
-import Button from "../../../../skin/button";
+import Button from "skin/button";
 import { PlayPauseIcon } from "./play-pause-icon";
 
 export const StartStopButton = () => {

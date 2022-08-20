@@ -68,7 +68,7 @@ export const SelectedWorkouts = () => {
               )}
               <img
                 alt="workoutImage"
-                src={require(`../../../assets/${workout_image}`)}
+                src={require(`assets/${workout_image}`)}
                 height="100px"
                 width="100px"
               />
