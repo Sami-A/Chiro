@@ -19,8 +19,14 @@ const GlobalStyle = () => {
           font-family: ${theme.FONT};
         }
 
+        *::-webkit-scrollbar {
+          height: 0.3rem;
+          width: 0.3rem;
+        }
+
         *::-webkit-scrollbar-thumb {
-          background-color: ${theme.SCROLLBAR} transparent;
+          background: ${theme.SCROLLBAR};
+          border-radius: 0.3rem;
         }
 
         ::selection {
