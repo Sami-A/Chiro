@@ -117,7 +117,7 @@ const slice = createSlice({
       return {
         ...state,
         status: ALL_STATUS.idle,
-        type: TIMER_TYPE.workout, // transition break before moving to the selected workout
+        type: TIMER_TYPE.workout, // there should be transition break before moving to the selected workout
         timeLeft: workoutDuration,
         currentWorkoutIndex: index, //after a transition break ended
         progress: 100,

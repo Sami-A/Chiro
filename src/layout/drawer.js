@@ -24,9 +24,12 @@ const useDelayUnmount = (delayTime) => {
 export const Drawer = ({ isDrawerOpen, closeDrawer }) => {
   const drawerRef = useRef();
 
-  // when drawer is closed,
-  // this component unmounting will be delayed by 200ms-
-  // to slide out the drawer.
+  /**
+     when drawer is closed,
+     this component unmounting will be delayed by 200ms-
+     to slide out the drawer.
+     -- Ah! The things we do for simple animation.
+  */
   const delayTimeWhenUnmount = !isDrawerOpen ? 200 : 0;
   const showComponent = useDelayUnmount(delayTimeWhenUnmount);
 

@@ -39,13 +39,11 @@ export const CountDownCircle = () => {
     <div className="circle-container">
       <CircularProgressbarWithChildren
         value={progress}
-        // text={`${selectedWorkouts.length > 0 ? timeLeft : 0}`}
         strokeWidth={9}
         styles={buildStyles({
           rotation: 1,
           strokeLinecap: "butt",
           pathTransitionDuration: 0.5,
-          //pathColor: `rgba(62, 152, 199, ${progress / 100})`,
           pathColor: theme.SECONDARY.main,
           trailColor: theme.SURFACE.active,
         })}

@@ -121,8 +121,7 @@ const SelectedWorkout = styled.div`
     padding: 1rem 0;
     font-size: 1.3rem;
     border-bottom: 1px solid ${({ theme }) => theme.BORDER_COLOR};
-    /* margin-bottom: 0.7rem; */
-  }
+ }
   .selected-workout-header span {
     font-size: 1rem;
     font-weight: bold;

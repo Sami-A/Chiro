@@ -4,10 +4,6 @@ const GlobalStyle = () => {
   return (
     <Global
       styles={css`
-        /* @font-face {
-        font-family: "font1";
-        src: url("https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap") format("truetype");
-      } */
         *,
         *::before,
         *::after {

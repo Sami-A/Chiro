@@ -85,8 +85,6 @@ const ErrorMessageContainer = styled.div`
     position: relative;
 
     & > img {
-      /* min-width: 300px; */
-
       @media (max-width: 600px) {
         max-width: 300px;
       }
