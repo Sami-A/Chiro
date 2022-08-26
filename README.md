@@ -2,14 +2,12 @@
 
 ## Stretching Exercise Web App
 
-<div class="row">
-  <img class="image"src="./screenshots/2.png" width="50%"/>
-  <img class="image" src="./screenshots/3.png" width="50%"/>
-</div>
-<div class="row">
-  <img class="image"src="./screenshots/1.png" width="50%"/>
-  <img class="image" src="./screenshots/4.png" width="50%"/>
-</div>
+
+  <img src="./screenshots/2.png" width="45%"/>
+  <img src="./screenshots/3.png" width="45%"/>
+  <img src="./screenshots/1.png" width="45%"/>
+  <img src="./screenshots/4.png" width="45%"/>
+
 
 ## What Is The Use (Person I Don't Know)? 
 
@@ -29,7 +27,7 @@ Well, if you work sitting down for long hours or sleep the wrong way, at some po
 - Session Based exercise routines with a count-down timer 
 - Auto start workouts and breaks timer for hands-free stretch exercise
 - Simple settings controls to adapt **`Chiro`** to suit your needs
-- &#127766; Dark mode
+- &#x1F312; Dark mode
 
 ## Stack
 Chiro front-end is built with React,  Redux-toolkit, React-Router, Emotion, and a 7-year-old &#x1F4BB;
@@ -45,18 +43,4 @@ Firefox, Chrome, Edge, Safari, and IE(just kidding) are supported
 - [ ] Testing
 - [ ] Documentation
 
-
-
-<style>
-  .row{
-    width: 100%;
-    display: flex;
-    gap: 1.3rem;
-    margin: 1.3rem 0;   
-   }
-  .image {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.7);border-radius:3px;
-    flex: 1 1 50%;
-    width: 30%;
-  }
 </style>
