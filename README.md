@@ -47,4 +47,3 @@ Firefox, Chrome, Edge, Safari, and IE(just kidding) are supported
 - [ ] Testing
 - [ ] Documentation
 
-</style>
