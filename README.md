@@ -2,11 +2,15 @@
 
 ## Stretching Exercise Web App
 
-
+<div>
   <img src="./screenshots/2.png" width="45%"/>
   <img src="./screenshots/3.png" width="45%"/>
+</div>  
+
+<div>
   <img src="./screenshots/1.png" width="45%"/>
   <img src="./screenshots/4.png" width="45%"/>
+</div>  
 
 
 ## What Is The Use (Person I Don't Know)? 
