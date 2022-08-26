@@ -3,12 +3,12 @@
 ## Stretching Exercise Web App
 
 <div class="row">
-  <img class="image"src="./screenshots/2.png" width="45%"/>
-  <img class="image" src="./screenshots/3.png" width="45%"/>
+  <img class="image"src="./screenshots/2.png" width="50%"/>
+  <img class="image" src="./screenshots/3.png" width="50%"/>
 </div>
 <div class="row">
-  <img class="image"src="./screenshots/1.png" width="45%"/>
-  <img class="image" src="./screenshots/4.png" width="45%"/>
+  <img class="image"src="./screenshots/1.png" width="50%"/>
+  <img class="image" src="./screenshots/4.png" width="50%"/>
 </div>
 
 ## What Is The Use (Person I Don't Know)? 
@@ -50,7 +50,7 @@ Firefox, Chrome, Edge, Safari, and IE(just kidding) are supported
 <style>
   .row{
     width: 100%;
-    /* display: flex; */
+    display: flex;
     gap: 1.3rem;
     margin: 1.3rem 0;   
    }
