@@ -17,7 +17,11 @@ Well, if you work sitting down for long hours or sleep the wrong way, at some po
 
 ```
 --Disclaimer--
-The exercise program and instructions in this web app are NOT intended, and should NOT be used, as a substitute for professional medical advice, diagnosis, or treatment. Not all exercises are suitable for everyone and this or any other exercise program may result in injury. PLEASE ALWAYS consult your DOCTOR before beginning this or any other exercise programs.
+The exercise program and instructions in this web app are NOT intended, and
+ should NOT be used, as a substitute for professional medical advice,
+  diagnosis, or treatment. Not all exercises are suitable for everyone and this
+   or any other exercise program may result in injury. PLEASE ALWAYS consult 
+   your DOCTOR before beginning this or any other exercise programs.
 ```
 
 ## Features
@@ -52,6 +56,6 @@ Firefox, Chrome, Edge, Safari, and IE(just kidding) are supported
   .image {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.7);border-radius:3px;
     flex: 1 1 50%;
-    width: 50%;
+    width: 45%;
   }
 </style>
