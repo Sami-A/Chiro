@@ -8,8 +8,8 @@ import Menu from "svg/menu";
 import { ToolBarContainer } from "./basement";
 import { Drawer } from "./drawer";
 
-const Logo = ({ logo }) => (
-  <div className="side-nav-header">
+const Logo = ({ logo, goHome }) => (
+  <div className="side-nav-header pointer" onClick={goHome}>
     <img
       src={require(`../assets/${logo}`)}
       width="130"
@@ -19,7 +19,7 @@ const Logo = ({ logo }) => (
   </div>
 );
 
-export const ToolBar = ({ logo }) => {
+export const ToolBar = ({ logo, goHome }) => {
   const [bodyArea, setBodyArea] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -43,7 +43,7 @@ export const ToolBar = ({ logo }) => {
 
   return (
     <ToolBarContainer>
-      <Logo logo={logo} />
+      <Logo logo={logo} goHome={goHome} />
       {bodyArea && (
         <div className="text-center toolbar-title">
           <h4>{bodyArea}</h4>
