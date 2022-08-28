@@ -55,15 +55,4 @@ const Timer = styled.div`
     display: flex;
     gap: 1.5rem;
   }
-
-  .circle-container {
-    height: 400px;
-    width: 400px;
-    text-align: center;
-
-    @media (max-width: 1300px) {
-      height: 350px;
-      width: 350px;
-    }
-  }
 `;

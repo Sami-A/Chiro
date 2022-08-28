@@ -10,7 +10,6 @@ import {
   CircularProgressbarWithChildren,
   buildStyles,
 } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 
 import styled from "@emotion/styled";
 
@@ -36,7 +35,7 @@ export const CountDownCircle = () => {
   }, []);
 
   return (
-    <div className="circle-container">
+    <CircleContainer>
       <CircularProgressbarWithChildren
         value={progress}
         strokeWidth={9}
@@ -53,9 +52,24 @@ export const CountDownCircle = () => {
           <span>{type === TIMER_TYPE.workout ? "Exercise" : "Break"}</span>
         </CircleProgressBarContent>
       </CircularProgressbarWithChildren>
-    </div>
+    </CircleContainer>
   );
 };
+
+const CircleContainer = styled.div`
+  height: 400px;
+  width: 400px;
+  text-align: center;
+
+  @media (max-width: 1300px) {
+    height: 350px;
+    width: 350px;
+  }
+  .CircularProgressbar {
+    width: 100%;
+    vertical-align: middle;
+  }
+`;
 
 const CircleProgressBarContent = styled.div`
   font-weight: bold;
