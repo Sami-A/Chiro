@@ -1,13 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 
 import ThemeConfig from "./theme-config";
-import GlobalStyle from "./layout/global";
+import GlobalStyle from "./shell/global";
 
 import ErrorBoundary from "scene/error-boundary";
 
-import { ChiroContainer, MainContainer } from "layout/basement";
+import { ChiroContainer, MainContainer } from "shell/basement";
 
-import { Navigation } from "layout/navigation";
+import { Navigation } from "shell/navigation";
 
 import Router from "helpers/routes";
 
