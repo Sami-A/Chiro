@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { ToolBarContainer, SideNavigationContainer } from "./basement";
 import { ToolBar } from "./toolbar";
@@ -13,9 +14,9 @@ const LOGO_NAMES = {
   chiroDarkSmall: "chiro_dark_small.png",
 };
 
-const Header = ({ logo }) => {
+const Header = ({ logo, goHome }) => {
   return (
-    <div className="side-nav-header">
+    <div className="side-nav-header pointer" onClick={goHome}>
       <img
         src={require(`../assets/${logo}`)}
         width="80"
@@ -28,7 +29,9 @@ const Header = ({ logo }) => {
 
 export const Navigation = () => {
   const theme = useSelector(({ settings }) => settings.theme);
+  const navigate = useNavigate();
 
+  const goHome = () => navigate("./");
   return (
     <>
       <ToolBarContainer>
@@ -38,6 +41,7 @@ export const Navigation = () => {
               ? LOGO_NAMES.chiroDarkSmall
               : LOGO_NAMES.chiroLightSmall
           }
+          goHome={goHome}
         />
       </ToolBarContainer>
       <SideNavigationContainer>
@@ -48,6 +52,7 @@ export const Navigation = () => {
                 ? LOGO_NAMES.chiroDark
                 : LOGO_NAMES.chiroLight
             }
+            goHome={goHome}
           />
           <NavLinks />
         </div>
