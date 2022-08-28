@@ -1,8 +1,8 @@
 /**
  * ~ No need to install animation library
- *    for simple slid in/out fade in/out
+ *   for simple slide in/out or fade in/out animations
  * 
- * ~ Save your self some `kilobytes` bro
+ * ~ Save yourself some `kilobytes` bro
  */
 
 import { css } from "@emotion/react";
