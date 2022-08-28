@@ -6,6 +6,8 @@ import { useTheme } from "@emotion/react";
 
 import { TIMER_TYPE, setTimeLeft, ALL_STATUS } from "../slice";
 
+import BleepSound from "assets/audio/bleep.mp3";
+
 import {
   CircularProgressbarWithChildren,
   buildStyles,
@@ -33,6 +35,15 @@ export const CountDownCircle = () => {
       dispatch(setTimeLeft(workoutDuration));
     }
   }, []);
+
+  useEffect(() => {
+    if (type === TIMER_TYPE.workout && timeLeft <= 5) {
+      new Audio(BleepSound).play();
+      //.catch(() => {
+      // Ignore!! Bleeping sound is not that important
+      //});
+    }
+  }, [timeLeft]);
 
   return (
     <CircleContainer>
