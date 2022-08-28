@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
+import useDelayUnmount from "helpers/use-delay-unmount";
 
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
@@ -7,28 +8,17 @@ import NavLinks from "./nav-links";
 
 import Close from "svg/close";
 
-const useDelayUnmount = (delayTime) => {
-  const [showComponent, setShowComponent] = useState(false);
-  useEffect(() => {
-    let timeout = setTimeout(
-      () => setShowComponent(delayTime ? false : true),
-      delayTime
-    );
-
-    return () => clearTimeout(timeout);
-  }, [delayTime, showComponent]);
-
-  return showComponent;
-};
+import animate, { ANIMATION_TYPES, ANIMATION_STYLES } from "helpers/animate";
 
 export const Drawer = ({ isDrawerOpen, closeDrawer }) => {
   const drawerRef = useRef();
 
   /**
-     when drawer is closed,
-     this component unmounting will be delayed by 200ms-
-     to slide out the drawer.
-     -- Ah! The things we do for simple animation.
+     ~ When drawer is about to close,
+        unmounting will be delayed by 200ms-
+        to animate drawer slide out.
+     ~ Rendering will not be delayed.
+     ~ Ahh! The things we do for simple animation.
   */
   const delayTimeWhenUnmount = !isDrawerOpen ? 200 : 0;
   const showComponent = useDelayUnmount(delayTimeWhenUnmount);
@@ -147,44 +137,3 @@ const DrawerContainer = styled.div`
     }
   `}
 `;
-
-const animate = (slide, style, from, to) => {
-  const __from__ = { [style]: from };
-  const __to__ = { [style]: to };
-  return css`
-    @keyframes ${slide} {
-      0% {
-        ${(() => __from__)()}
-      }
-      100% {
-        ${(() => __to__)()}
-      }
-    }
-  `;
-};
-
-const ANIMATION_TYPES = Object.freeze({
-  FADE_IN: "fadeIn",
-  FADE_OUT: "fadeOut",
-  SLIDE_IN: "slideIn",
-  SLIDE_OUT: "slideOut",
-});
-
-const ANIMATION_STYLES = new Map([
-  [
-    ANIMATION_TYPES.FADE_IN,
-    { animation: `${ANIMATION_TYPES.FADE_IN} 150ms linear 1 forwards` },
-  ],
-  [
-    ANIMATION_TYPES.FADE_OUT,
-    { animation: `${ANIMATION_TYPES.FADE_OUT} 150ms linear 1 forwards` },
-  ],
-  [
-    ANIMATION_TYPES.SLIDE_IN,
-    { animation: `${ANIMATION_TYPES.SLIDE_IN} 150ms ease-in` },
-  ],
-  [
-    ANIMATION_TYPES.SLIDE_OUT,
-    { animation: `${ANIMATION_TYPES.SLIDE_OUT} 150ms ease-out forwards` },
-  ],
-]);
