@@ -37,6 +37,7 @@ export const SelectedWorkouts = () => {
           {selectedWorkouts.length > 0 ? selectedWorkouts.length : 0} exercises
         </span>
       </div>
+
       {selectedWorkouts.length < 1 ? (
         <h3>No workouts selected</h3>
       ) : (
@@ -47,25 +48,26 @@ export const SelectedWorkouts = () => {
               className={`selected-workout-row
             ${index === currentWorkoutIndex && "selected-workout-row-active"}`}
             >
-              {currentWorkoutIndex + 1 === index && type === TIMER_TYPE.break && (
-                <div className="up-next-workout-indicator">
-                  <span>Up-next</span>
-                  <div className="tiny-circle-container">
-                    <CircularProgressbar
-                      value={progress}
-                      text={`${timeLeft}`}
-                      strokeWidth={9}
-                      styles={buildStyles({
-                        rotation: 1,
-                        textSize: "2.5rem",
-                        pathColor: theme.SURFACE2.on,
-                        textColor: theme.SURFACE2.on,
-                        trailColor: theme.SURFACE2.variant,
-                      })}
-                    />
+              {currentWorkoutIndex + 1 === index &&
+                type === TIMER_TYPE.break && (
+                  <div className="up-next-workout-indicator">
+                    <span>Up-next</span>
+                    <div className="tiny-circle-container">
+                      <CircularProgressbar
+                        value={progress}
+                        text={`${timeLeft}`}
+                        strokeWidth={9}
+                        styles={buildStyles({
+                          rotation: 1,
+                          textSize: "2.5rem",
+                          pathColor: theme.SURFACE2.on,
+                          textColor: theme.SURFACE2.on,
+                          trailColor: theme.SURFACE2.variant,
+                        })}
+                      />
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
               <img
                 alt="workoutImage"
                 src={require(`assets/${workout_image}`)}
@@ -162,7 +164,8 @@ const SelectedWorkout = styled.div`
   .up-next-workout-indicator {
     position: absolute;
     top: 0;
-    right: 0rem;
+    right: 0;
+    left: 0
     height: 1.7rem;
     line-height: 1.5rem;
     background: ${({ theme }) => theme.SURFACE2.main};
@@ -170,6 +173,9 @@ const SelectedWorkout = styled.div`
     font-weight: bold;
     border-radius: 0 3px 0 3px;
     padding: 0 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center
   }
   .up-next-workout-indicator > span {
     line-height: 1rem;
@@ -179,7 +185,11 @@ const SelectedWorkout = styled.div`
   .tiny-circle-container {
     width: 24px;
     height: 24px;
-    float: right;
+
+    .CircularProgressbar-text {
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
   }
 
   .selected-workout-row ul {
